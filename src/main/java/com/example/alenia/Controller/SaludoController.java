@@ -1,6 +1,8 @@
 package com.example.alenia.Controller;
 
-import com.example.alenia.model.Persona;
+import com.example.alenia.model.PersonaDTO;
+import com.example.alenia.model.SolicitudRequest;
+import com.example.alenia.model.SolicitudResponse;
 import com.example.alenia.service.SaludoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +16,12 @@ public class SaludoController {
     SaludoServicio saludoServicio;
 
     @PostMapping("/holaPersonal")
-    public ResponseEntity<String> holaPersonal(@RequestBody Persona persona) {
-        if(persona.getNombre() == null){
+    public ResponseEntity<String> holaPersonal(@RequestBody PersonaDTO personaDTO) {
+        if(personaDTO.getNombre() == null){
             return ResponseEntity.badRequest().body("Nombre no valido");
         }
 
-        return ResponseEntity.ok(saludoServicio.holaPersonal(persona));
+        return ResponseEntity.ok(saludoServicio.holaPersonal(personaDTO));
     }
 
     @GetMapping("/hola")
@@ -32,4 +34,6 @@ public class SaludoController {
                        @RequestParam(required = false) String apellido) {
         return "Chau " + name + apellido;
     }
+
+
 }

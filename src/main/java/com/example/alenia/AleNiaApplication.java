@@ -9,5 +9,4 @@ public class AleNiaApplication {
     public static void main(String[] args) {
         SpringApplication.run(AleNiaApplication.class, args);
     }
-
 }

@@ -1,16 +1,16 @@
 package com.example.alenia.service;
 
-import com.example.alenia.model.Persona;
+import com.example.alenia.model.PersonaDTO;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SaludoServicio {
 
-    public String holaPersonal(Persona persona) {
-        if (persona.getEdad() < 18) {
+    public String holaPersonal(PersonaDTO personaDTO) {
+        if (personaDTO.getEdad() < 18) {
             return "hola niño";
         }
-        return "hola " + persona.getNombre();
+        return "hola " + personaDTO.getNombre();
     }
 
     public String hola(String name){
